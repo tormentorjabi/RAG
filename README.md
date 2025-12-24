@@ -35,6 +35,7 @@ vector-search-rag/
 │   ├── templates/       # HTML шаблоны
 │   └── static/          # CSS/JS файлы
 ├── data/               # Данные
+├── logs/               # Логи
 ├── docker-compose.yml   # Docker конфигурация
 ├── requirements.txt    # Зависимости
 └── README.md
