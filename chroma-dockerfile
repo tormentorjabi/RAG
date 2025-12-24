@@ -1,0 +1,6 @@
+FROM chromadb/chroma:0.4.21
+
+# Исправляем проблему с NumPy в ChromaDB
+RUN sed -i 's/np\.float_/np.float64/g' /chroma/chromadb/api/types.py
+
+ENTRYPOINT ["/docker_entrypoint.sh"]

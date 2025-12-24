@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: vector-search-rag
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: "no"
+    depends_on:
+      - chroma
+    # healthcheck временно отключен
+
+  chroma:
+    build:
+      context: .
+      dockerfile: chroma-dockerfile
+    container_name: chroma-db
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - ALLOW_RESET=TRUE
+      - CHROMA_SERVER_AUTH_NO_AUTH=true
+      - ANONYMIZED_TELEMETRY=False
+    restart: "no"
+    # healthcheck временно отключен
+
+volumes:
+  chroma_data:

@@ -1,0 +1,9 @@
+fastapi==0.110.0
+uvicorn==0.29.0
+chromadb==0.4.21
+sentence-transformers==2.6.1
+pydantic<2.0
+numpy==1.26.2
+nltk==3.8.1
+python-multipart==0.0.9
+Jinja2==3.1.3
